@@ -24,6 +24,7 @@ namespace CaesarCipher
             };*/
 		private Dictionary<char, double> normalFrequency = new Dictionary<char, double>();
 		private Dictionary<char, double> encryptedFrequency = new Dictionary<char, double>();
+		private Dictionary<char,char> replaceDictionary = new Dictionary<char,char>();
 		Dictionary<char, int> normalTextCount = new Dictionary<char, int>() {
 			 {'а',0},{'б',0},{'в',0},{'г',0},{'д',0},{'е',0},
 			{'ё',0},{'ж',0},{'з',0},{'и',0},{'й',0},{'к',0},{'л',0},
@@ -117,9 +118,9 @@ namespace CaesarCipher
 		public void crackText()
         {
 			//var ordered = encryptedFrequency.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-
+			//отсортировал по убыванию частоты
 			encryptedFrequency = encryptedFrequency.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-		
+			normalFrequency = normalFrequency.OrderByDescending(x=>x.Value).ToDictionary(x=>x.Key,x=>x.Value);
 
 			FileProcessor fp = new FileProcessor();
 			string res = "";
@@ -135,21 +136,10 @@ namespace CaesarCipher
 				characters.AddRange(line);
 
 			}
-			foreach(char ech in characters)
-            {
-				if (char.IsWhiteSpace(ech) || char.IsDigit(ech) || char.IsPunctuation(ech) || char.IsSeparator(ech))
-				{
-					continue;
-				}
-				else
-				{
-				
-					//encryptedTextCount[char.ToLower(ch)]++;
-		
-
-				}
+			for(i=0;i<33;i++)
+			{
+				if(normalFrequency
 			}
-			res = string.Join(" ", rep);
 			Console.Write(res);
 
 		//	fp.writeFileDecryption(res);
