@@ -145,13 +145,7 @@ namespace CaesarCipher
 				{
 				
 					//encryptedTextCount[char.ToLower(ch)]++;
-					if((normalFrequency.va) ==(encryptedFrequency[char.ToLower(ech)]))
-                    {
-						
-							rep.Add(ech);
-							//res =string.Join(" ",rep);
-                        
-                    }
+		
 
 				}
 			}
