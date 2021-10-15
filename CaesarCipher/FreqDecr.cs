@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
-//игнорить запятые и знаки препинания.
+
 namespace CaesarCipher
 {
 	class FreqDecr
